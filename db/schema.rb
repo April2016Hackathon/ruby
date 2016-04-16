@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416145410) do
+ActiveRecord::Schema.define(version: 20160416151118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160416145410) do
     t.string   "password_digest"
     t.string   "email"
     t.boolean  "mood"
-    t.integer  "wildpoints"
+    t.integer  "wildpoints",      default: 0
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "auth_token"
