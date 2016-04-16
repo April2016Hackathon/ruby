@@ -7,6 +7,18 @@ class PostingsController < ApplicationController
      render "index.json.jbuilder", status: :ok
   end
 
+  def show
+    @post = Posting.find(params["id"])
+    render json: { postings: @post.as_json }
+  end
+
+  def recent
+    @user = User.find(params["user_id"])
+    @post = @user.postings.last
+    render json: { postings: @post.as_json }
+  end
+
+
 
   def create
       @post = current_user.postings.create(user_id: session[:user_id], text: params[:text], title: params[:title],##describe
