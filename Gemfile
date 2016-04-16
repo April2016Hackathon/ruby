@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use postgres as the database for Active Record
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -24,17 +24,22 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+#add CORS
+gem 'rack-cors', require: "rack/cors"
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Add aws-sdk for communication with s3
+gem "aws-sdk", '< 2.0'
+
+# Add paperclip for managing attachments
+gem "paperclip"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -45,3 +50,6 @@ group :development do
   gem 'spring'
 end
 
+group :development, :production do
+    gem 'rails_12factor'
+end
