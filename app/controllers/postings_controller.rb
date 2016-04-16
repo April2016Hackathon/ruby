@@ -1,6 +1,5 @@
 class PostingsController < ApplicationController
 	before_action :authenticate!, only:[:create, :destroy]
-
 	#this code needs to be reviewed and reworked
 
 
@@ -55,5 +54,6 @@ class PostingsController < ApplicationController
 # 			status: :unauthorized
 # 		end
 # 	end
+
 # end
 end
