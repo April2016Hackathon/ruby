@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post "auth/test", to: "users#check_auth"
 
   get "posts/:id/responses", to: "responses#show"
-  post "posts/:id/responses", to: "responses#new"
+  post "posts/:id/responses", to: "responses#create"
 
   get "posts/index", to: "postings#index"
   post "posts/create", to: "postings#create"
