@@ -18,17 +18,15 @@ class PostingsController < ApplicationController
     end
   end
 
-# 	def destroy
-# 		@post = Post.find_by(id: params["id"])
-# 		if current_user.id == @post.user.id
-# 			@post.destroy
-# 			render json: "POST DESTROYED.",
-# 			status: :accepted
-# 		else
-# 			render json: { error: "INCORRECT USER." },
-# 			status: :unauthorized
-# 		end
-# 	end
-
-# end
+  def destroy
+  	@post = Posting.find_by(id: params["id"])
+  	if current_user.id == @post.user.id
+  		@post.destroy
+  		render json: "POST DESTROYED.",
+  			status: :accepted
+  		else
+  			render json: { error: "INCORRECT USER." },
+  			status: :unauthorized
+		end
+	end
 end
