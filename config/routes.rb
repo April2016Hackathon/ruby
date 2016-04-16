@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get "posts/index", to: "postings#index"
   post "posts/create", to: "postings#create"
+  get "posts/:id", to: "postings#show", as: "post"
+  get "posts/:user_id/newest", to: "postings#recent"
   delete "posts/:id", to: "postings#destroy"
 
   # Example of regular route:
