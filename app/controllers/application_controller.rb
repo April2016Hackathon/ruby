@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   	end
   end
 
-  rescure_from ActiveRecord::RecordNotFound do |error|
+  rescue_from ActiveRecord::RecordNotFound do |error|
   	render json: { error: "No such object: #{error.message} " },
   		status: :not_found
   	end

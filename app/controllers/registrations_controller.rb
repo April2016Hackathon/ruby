@@ -1,4 +1,4 @@
-class RegistrationController < ApplicationController
+class RegistrationsController < ApplicationController
 	skip_before_filter	:verify_authenticity_token, only: [:create, :login]
 
 	def create
@@ -7,7 +7,7 @@ class RegistrationController < ApplicationController
 						password: params["password"])
 		@user.ensure_auth_token
 		if @user.save
-			render json: { user: @user.as_json(only: [:username, :email, :authtoken] )},
+			render json: { user: @user.as_json(only: [:username, :email, :auth_token] )},
 				status: :created
 		else
 			render json: { errors: @user.errors.full_messages },

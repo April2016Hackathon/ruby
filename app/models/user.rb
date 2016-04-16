@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	has_many :guesses
 	belongs_to :rank
 
-	validates_presence_of :ranking
+	validates_presence_of :rank_id
 
 	validates :email, presence: true, uniqueness: true,
 		format: {
@@ -27,9 +27,4 @@ class User < ActiveRecord::Base
 		end
 		token
 	end
-end
-
-
-
-
 end
