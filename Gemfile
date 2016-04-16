@@ -30,10 +30,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors', require: "rack/cors"
 
 # Add aws-sdk for communication with s3
-gem "aws-sdk", '< 2.0'
+gem 'aws-sdk', '< 2.0'
 
 # Add paperclip for managing attachments
-gem "paperclip"
+gem 'paperclip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
