@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   get "posts/:id/responses", to: "responses#show"
   post "posts/:id/responses", to: "responses#new"
 
-  get "posts/index", to: "posts#index"
-  post "posts/create", to: "posts#create"
-  delete "posts/:id", to: "posts#destroy"
+  get "posts/index", to: "postings#index"
+  post "posts/create", to: "postings#create"
+  delete "posts/:id", to: "postings#destroy"
 
   #ask brit about this??
   # get ":#{current_user}/post/:id"
