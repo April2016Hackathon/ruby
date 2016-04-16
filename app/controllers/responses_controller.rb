@@ -12,4 +12,17 @@ class ResponsesController < ApplicationController
       render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @post = Posting.find(params[:id])
+    @response = Response.find(params[:posting_id])
+    if current_user.id == @response.user_id
+      @response.destroy
+      render json: { message: "RESPONSE DESTROYED" },
+      status: :accepted
+    else
+      render json: { error: "INVALID USER" },
+      status: :unauthorized
+    end
+  end
 end

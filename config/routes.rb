@@ -13,15 +13,11 @@ Rails.application.routes.draw do
 
   get "posts/:id/responses", to: "responses#show"
   post "posts/:id/responses", to: "responses#create"
+  delete "posts/:id/responses/:posting_id", to: "responses#destroy", as: "delete_responses"
 
   get "posts/index", to: "postings#index"
   post "posts/create", to: "postings#create"
   delete "posts/:id", to: "postings#destroy"
-
-  #ask brit about this??
-  # get ":#{current_user}/post/:id"
-
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
