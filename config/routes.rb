@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  post "signup", to "registrations#create"
-  delete "signup", to "registrations#destroy"
+  post "signup", to: "registrations#create"
+  delete "signup", to: "registrations#destroy"
   post "login", to: "registrations#login"
 
   post "auth/test", to: "users#check_auth"
