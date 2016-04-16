@@ -108,40 +108,57 @@ Returns 200 OK on success.
 
 **Response** 
 ```
-{
-this needs to be filled in
-
-}
+[
+  {
+    "user": "test",
+    "title": "TEST",
+    "text": "this is a test",
+    "mood": false,
+    "id": 1,
+    "created_at": "2016-04-16T17:09:52.332Z"
+  },
+    {
+    "user": "test",
+    "title": "TEST",
+    "text": "this is a test",
+    "mood": false,
+    "id": 5,
+    "created_at": "2016-04-16T19:25:20.175Z"
+  }
+]
 ```
 
 #### POST /posts/create
 
 *This route is to create a new posting.*
 
-
-fill this shit in
-
 Params:
-* 
-* 
-* 
+* text:string
+* title:string
+* mood:boolean
 
 Returns 201 Created on success and 422 Unprocessable Entity on failure.
 
 **Request**
 ```
 {
-
-
+	"text": "this is a test"
+	"title": "TEST"
+	"mood": "false"
 }
 ```
 
 **Response**
 ```
 {
-
-
-
+  "post": {
+    "username": "test",
+    "id": 11,
+    "user_id": 2,
+    "text": "this is a test",
+    "title": "TEST",
+    "mood": false
+  }
 }
 ```
 
