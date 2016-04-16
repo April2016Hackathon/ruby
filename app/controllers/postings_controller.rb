@@ -34,4 +34,4 @@ class PostingsController < ApplicationController
 # 			status: :unauthorized
 # 		end
 # 	end
-# end
+end
