@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   post "auth/test", to: "users#check_auth"
 
-  get "posts/:id/responses", to: "responses#show"
+  get "posts/:id/responses", to: "responses#index"
   post "posts/:id/responses", to: "responses#create"
   delete "posts/:id/responses/:posting_id", to: "responses#destroy", as: "delete_responses"
 

@@ -108,27 +108,24 @@ Returns 200 OK on success.
 
 **Response**
 ```
-{
-  [
+[
+  {
+    "user": "test",
+    "title": "TEST",
+    "text": "this is a test",
+    "mood": false,
+    "id": 1,
+    "created_at": "2016-04-16T17:09:52.332Z"
+  },
     {
-      "user": "Tommy",
-      "title": "Wild",
-      "text": "Test stuff",
-      "mood": false,
-      "id": 1,
-      "created_at": "2016-04-16T16:44:57.861Z"
-    },
-    {
-      "user": "Mark",
-      "title": "Mild",
-      "text": "More test stuff",
-      "mood": false,
-      "id": 2,
-      "created_at": "2016-04-16T16:46:18.574Z"
-    }
-  ]
-
-}
+    "user": "test",
+    "title": "TEST",
+    "text": "this is a test",
+    "mood": false,
+    "id": 5,
+    "created_at": "2016-04-16T19:25:20.175Z"
+  }
+]
 ```
 
 #### POST /posts/create
@@ -136,34 +133,32 @@ Returns 200 OK on success.
 *This route is to create a new posting.*
 
 Params:
-* user_id: integer
-* text: string
-* title: string
-* mood: boolean
+* text:string
+* title:string
+* mood:boolean
 
 Returns 201 Created on success and 422 Unprocessable Entity on failure.
 
 **Request**
 ```
 {
-  "user_id": "2"
-  "text": "New"
-  "title": "Howdy"
-  "mood": "false"
+	"text": "this is a test"
+	"title": "TEST"
+	"mood": "false"
 }
 ```
 
 **Response**
 ```
 {
-    "post": {
-      "username": "Jessica",
-      "id": 3,
-      "user_id": 2,
-      "text": "New",
-      "title": "Howdy",
-      "mood": false
-    }
+  "post": {
+    "username": "test",
+    "id": 11,
+    "user_id": 2,
+    "text": "this is a test",
+    "title": "TEST",
+    "mood": false
+  }
 }
 ```
 
@@ -175,62 +170,3 @@ Params:
 * posting_id: integer - this comes from the url (:id)
 
 Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
-
-
-#### GET /posts/:user_id/newest
-
-*This route is for getting the newest post of a user.*
-
-**Response**
-```
-{
-  "postings": {
-    "id": 2,
-    "user_id": 2,
-    "text": "Hello",
-    "title": "Hello again",
-    "created_at": "2016-04-16T16:46:18.574Z",
-    "updated_at": "2016-04-16T16:46:18.574Z",
-    "mood": false
-  }
-}
-```
-
-#### GET /posts/:id/responses
-
-
-
-
-
-
-#### POST /posts/:id/responses
-
-*This route is for posting a response to post.*
-
-Params:
-* user_id: integer
-* text: string
-* chosen: boolean
-
-Returns 201 Created on success and 422 Unprocessable Entity on failure.
-
-**Request**
-```
-{
-  "user_id": 2
-  "text": "Great post!"
-  "chosen": false
-}
-```
-
-**Response**
-```
-{
-  "post": {
-    "username": "test"
-    },
-    "user_id": 2,
-    "text": "testing testing",
-    "chosen": false
-}
-```
