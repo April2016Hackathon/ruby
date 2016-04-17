@@ -22,8 +22,7 @@ class ResponsesController < ApplicationController
   end
 
   def destroy
-    @post = Posting.find(params[:id])
-    @response = Response.find(params[:posting_id])
+    @response = Response.find(params[:response_id])
     if current_user.id == @response.user_id
       @response.destroy
       render json: { message: "RESPONSE DESTROYED" },
@@ -35,6 +34,19 @@ class ResponsesController < ApplicationController
   end
 
   def update
-    
+    @response = Response.find(params[:response_id]) 
+    if current_user.id == @response.user_id
+      @response.update(:chosen => true)
+      if @response.save
+        render json: { message: "CHOSEN IS NOW TRUE!"},
+        status: :accepted
+      else
+        render json: { message: "THERE CAN ONLY BE ONE"},
+        status: :unprocessable_entity
+      end
+    else
+      render json: { error: "INVALID USER"},
+      status: :unauthorized
+    end
   end
 end

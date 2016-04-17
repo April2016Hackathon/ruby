@@ -5,9 +5,9 @@ class Response < ActiveRecord::Base
 	validates_presence_of :user_id, :posting_id
 
 
-	validate :name_of_method
+	validate :therecanonlybeone
 
-	def name_of_method
+	def therecanonlybeone
 	 posting = self.posting
 	 response = posting.responses.find_by(chosen: true)
 	 if self.chosen && response

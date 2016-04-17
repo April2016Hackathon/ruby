@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 
   get "posts/:id/responses", to: "responses#index"
   post "posts/:id/responses", to: "responses#create"
-  delete "posts/:id/responses/:posting_id", to: "responses#destroy", as: "delete_responses"
+  delete "posts/:id/responses/:response_id", to: "responses#destroy", as: "delete_responses"
+  put "posts/:id/responses/:response_id", to: "responses#update"
 
   get "posts/index", to: "postings#index"
   post "posts/create", to: "postings#create"
