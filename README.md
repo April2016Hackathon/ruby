@@ -93,12 +93,46 @@ Returns 200 OK on Success and will throw an ActiveRecord::Record not found excep
 
 #### POST /posts/:id/responses
 
-*This route is for creating new responses.*
+*This route is for posting a response to post.*
 
 Params:
-* posting_id: integer - this comes from the url (:id)
+* user_id: integer
+* text: string
+* chosen: boolean
 
-Returns 201 Created on success and 404 Not Found if the image id doesn't exist
+Returns 201 Created on success and 422 Unprocessable Entity on failure.
+
+**Request**
+```
+{
+  "user_id": 2
+  "text": "Great post!"
+  "chosen": false
+}
+```
+
+**Response**
+```
+{
+  "post": {
+    "username": "test"
+    },
+    "user_id": 2,
+    "text": "testing testing",
+    "chosen": false
+}
+```
+
+####DELETE posts/:id/responses/:response_id
+
+*This route is for deleting a response.*
+
+Params
+* posting_id: integer - this comes from the url (:id)
+* response_id: integer
+
+Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
+
 
 #### GET /posts/index
 
@@ -157,6 +191,44 @@ Returns 201 Created on success and 422 Unprocessable Entity on failure.
     "user_id": 2,
     "text": "this is a test",
     "title": "TEST",
+    "mood": false
+  }
+}
+```
+
+#### GET posts/:id
+
+*This route is for showing posts based on the id of the post.*
+
+**Response**
+```
+{
+  "postings": {
+    "id": 3,
+    "user_id": 2,
+    "text": "New",
+    "title": "Test",
+    "created_at": "2016-04-17T01:30:01.689Z",
+    "updated_at": "2016-04-17T01:30:01.689Z",
+    "mood": false
+  }
+}
+```
+
+#### GET /posts/:user_id/newest
+
+*This route is for getting the newest post of a user.*
+
+**Response**
+```
+{
+  "postings": {
+    "id": 2,
+    "user_id": 2,
+    "text": "Hello",
+    "title": "Hello again",
+    "created_at": "2016-04-16T16:46:18.574Z",
+    "updated_at": "2016-04-16T16:46:18.574Z",
     "mood": false
   }
 }
