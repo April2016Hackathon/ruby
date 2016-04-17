@@ -106,10 +106,27 @@ Returns 201 Created on success and 404 Not Found if the image id doesn't exist
 
 Returns 200 OK on success.
 
-**Response** 
+**Response**
 ```
 {
-this needs to be filled in
+  [
+    {
+      "user": "Tommy",
+      "title": "Wild",
+      "text": "Test stuff",
+      "mood": false,
+      "id": 1,
+      "created_at": "2016-04-16T16:44:57.861Z"
+    },
+    {
+      "user": "Mark",
+      "title": "Mild",
+      "text": "More test stuff",
+      "mood": false,
+      "id": 2,
+      "created_at": "2016-04-16T16:46:18.574Z"
+    }
+  ]
 
 }
 ```
@@ -118,30 +135,35 @@ this needs to be filled in
 
 *This route is to create a new posting.*
 
-
-fill this shit in
-
 Params:
-* 
-* 
-* 
+* user_id: integer
+* text: string
+* title: string
+* mood: boolean
 
 Returns 201 Created on success and 422 Unprocessable Entity on failure.
 
 **Request**
 ```
 {
-
-
+  "user_id": "2"
+  "text": "New"
+  "title": "Howdy"
+  "mood": "false"
 }
 ```
 
 **Response**
 ```
 {
-
-
-
+    "post": {
+      "username": "Jessica",
+      "id": 3,
+      "user_id": 2,
+      "text": "New",
+      "title": "Howdy",
+      "mood": false
+    }
 }
 ```
 
@@ -155,3 +177,33 @@ Params:
 Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
 
 
+#### GET /posts/:user_id/newest
+
+*This route is for getting the newest post of a user.*
+
+**Response**
+```
+{
+  "postings": {
+    "id": 2,
+    "user_id": 2,
+    "text": "Hello",
+    "title": "Hello again",
+    "created_at": "2016-04-16T16:46:18.574Z",
+    "updated_at": "2016-04-16T16:46:18.574Z",
+    "mood": false
+  }
+}
+```
+
+#### GET /posts/:id/responses
+
+*This response .*
+
+
+
+
+
+#### POST /posts/:id/responses
+
+*This response .*
