@@ -1,4 +1,4 @@
-json.post do
-   json.username @post.user.username
+json.response do
+	json.username @response.user.username
+	json.extract! @response, :user_id, :posting_id, :text, :chosen
 end
-json.extract! @response, :user_id, :text, :chosen
