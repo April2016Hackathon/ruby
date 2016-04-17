@@ -198,7 +198,6 @@ Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
 
 #### GET /posts/:id/responses
 
-*This response .*
 
 
 
