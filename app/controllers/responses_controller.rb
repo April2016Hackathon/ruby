@@ -31,4 +31,8 @@ class ResponsesController < ApplicationController
     @responses = @post.responses.all
     render "index.json.jbuilder", status: :ok
   end
+
+  def update
+    
+  end
 end
