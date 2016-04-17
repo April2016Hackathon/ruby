@@ -34,13 +34,13 @@ class ResponsesController < ApplicationController
   end
 
   def update
-    @response = Response.find(params[:response_id]) 
+    @response = Response.find(params[:response_id])
     if current_user.id == @response.user_id
-      @response.update(:chosen => true)
-      if @response.save
+      if @response.update(chosen: true)
         render json: { message: "CHOSEN IS NOW TRUE!"},
         status: :accepted
       else
+      binding.pry
         render json: { message: "THERE CAN ONLY BE ONE"},
         status: :unprocessable_entity
       end
