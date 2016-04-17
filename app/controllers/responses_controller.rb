@@ -25,4 +25,10 @@ class ResponsesController < ApplicationController
       status: :unauthorized
     end
   end
+
+  def index
+    @post = Posting.find(params[:id])
+    @responses = @post.responses.all
+    render "index.json.jbuilder", status: :ok
+  end
 end
