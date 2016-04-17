@@ -1,11 +1,18 @@
 class ResponsesController < ApplicationController
 	before_action :authenticate!, only: [:new]
 
+  # def show
+  #   @user = User.find(params[:id])
+  #   @response = Response.find(params[@user.id])
+  #   @response = @user.responses.find(params[:id])
+  # end
+
   def create
       @post = Posting.find(params[:id])
       @response = @post.responses.create(user_id: current_user.id,
                                          text: params[:text],
                                          chosen: params[:chosen])
+      binding.pry
     if @post.save
       render "create.json.jbuilder", status: :created
     else
