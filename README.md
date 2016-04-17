@@ -206,4 +206,32 @@ Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
 
 #### POST /posts/:id/responses
 
-*This response .*
+*This route is for posting a response to post.*
+
+Params:
+* user_id: integer
+* text: string
+* chosen: boolean
+
+Returns 201 Created on success and 422 Unprocessable Entity on failure.
+
+**Request**
+```
+{
+  "user_id": 2
+  "text": "Great post!"
+  "chosen": false
+}
+```
+
+**Response**
+```
+{
+  "post": {
+    "username": "test"
+    },
+    "user_id": 2,
+    "text": "testing testing",
+    "chosen": false
+}
+```
